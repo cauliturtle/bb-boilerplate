@@ -1,5 +1,4 @@
 # BB boilerplate
------------------------
 
 It is a boilerplate of a web app. It contains 
 
@@ -9,3 +8,10 @@ It is a boilerplate of a web app. It contains
 * backbone.js, 
 * underscore.js,
 * less.js
+
+## Run the demo
+
+````bash
+node node/app.js
+````
+
