@@ -19,7 +19,7 @@ define([
         that.apiEndPoint = apiEndPoint;
         
         require([
-            'views/appView'
+            'controllers/appView'
         ], function(appView){
              
             var appView = new appView({

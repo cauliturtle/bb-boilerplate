@@ -11,7 +11,9 @@ It is a boilerplate of a web app. It contains
 
 ## Run the demo
 
-````bash
-node node/app.js
-````
+    $ git clone https://github.com/cauliturtle/bb-boilerplate.git
+    $ cd bb-boilerplate/node
+    $ node app.js
+
+Open your borwser and enter `http://localhost:1337`
 

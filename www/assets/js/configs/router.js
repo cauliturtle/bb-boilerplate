@@ -1,22 +1,50 @@
 define([
     'application',
-    'backbone',
-    'controllers/main'
+    'backbone'
 ], function(_App, Backbone, Main) {
     
     var AppRouter = Backbone.Router.extend({
-        initialize: function(options) {
-            
-            this.route("", "index", function() {
-                Main.index();
+        routes: {
+            ''          : 'index',
+            'home'      : 'home',
+            'about'     : 'about',
+        },
+        defaultRoute: function(path){
+            require(['controllers/'+path+'View'], function(viewControl){
+                new viewControl;
             });
-            
-            this.route("home", "home", function() {
-                Main.home();
+        },
+        index: function(){
+            require([
+                'controllers/indexView'
+            ], function(viewControl){
+                var indexView = new viewControl({
+                    el: $('.content-wrapper')
+                });
             });
-            
-            this.route("about", "about", function(){
-                Main.about();
+        },
+        home: function(){
+            require([
+                'controllers/homeView',
+                'models/homeModel'
+            ], function(viewControl, homeModel){
+                var _homeObject = new homeModel();
+                var homeView = new viewControl({
+                    model: _homeObject,
+                    el: $('.content-wrapper')
+                });
+            });
+        },
+        about: function(){
+            require([
+                'controllers/aboutView',
+                'models/aboutModel'
+            ], function(viewControl, aboutModel){
+                var _aboutObject = new aboutModel();
+                var aboutView = new viewControl({
+                    model: _aboutObject,
+                    el: $('.content-wrapper')
+                });
             });
         }
     });
